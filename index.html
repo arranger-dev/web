@@ -218,11 +218,14 @@ footer a { color: var(--muted); }
       </div>
       <div class="card s3">
         <h3>Parallel and isolated</h3>
-        <p>Each agent works on its own git branch, at the same time as the others. <b>Your branch is never touched.</b></p>
+        <p>Each agent gets its own git worktree and works at the same time as the others. <b>Your branch is never touched.</b></p>
 <div class="mini">main            <span class="ok">untouched</span>
 ├ arranger/db-schema
+│   <span class="dim">~/.arranger/worktrees/db-schema</span>
 ├ arranger/invites-api
-└ arranger/invite-emails</div>
+│   <span class="dim">~/.arranger/worktrees/invites-api</span>
+└ arranger/invite-emails
+    <span class="dim">~/.arranger/worktrees/invite-emails</span></div>
       </div>
       <div class="card s3">
         <h3>Review before anything merges</h3>
