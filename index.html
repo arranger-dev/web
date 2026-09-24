@@ -69,7 +69,8 @@ nav a.nb.gh svg { width: 16px; height: 16px; fill: currentColor; display: block;
 .btn svg { width: 16px; height: 16px; fill: currentColor; }
 
 figure { margin: 0; display: grid; gap: 10px; }
-.tree { background: var(--panel); border: 1px solid var(--line); overflow-x: auto; }
+/* no frame: the agent boxes sit on the page itself, like on the app's canvas */
+.tree { overflow-x: auto; }
 .tree svg { display: block; width: 100%; min-width: 720px; height: auto; color: var(--muted); }
 svg .box { fill: var(--panel); stroke: var(--line); stroke-width: 1.5; }
 svg .stripe.m { fill: var(--manager); } svg .stripe.c { fill: var(--coder); } svg .stripe.r { fill: var(--reviewer); } svg .stripe.t { fill: var(--tester); }
@@ -97,8 +98,8 @@ section > p { color: var(--muted); max-width: 64ch; }
 .why p { color: var(--muted); font-size: 14px; }
 .why b { color: var(--text); font-weight: 600; }
 
-.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; counter-reset: s; }
-.steps li { counter-increment: s; border-top: 2px solid var(--text); padding-top: 12px; display: grid; gap: 6px; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; counter-reset: s; }
+.steps li { counter-increment: s; border-top: 2px solid var(--text); padding-top: 12px; display: grid; gap: 6px; align-content: start; }
 .steps li::before { content: counter(s, decimal-leading-zero); font: 500 13px var(--mono); color: var(--muted); }
 .steps h3 { font-size: 15px; }
 .steps p { color: var(--muted); font-size: 14px; }
@@ -187,7 +188,7 @@ footer a { color: var(--muted); }
     <h2>Orchestration you don't have to babysit</h2>
     <p>One agent with one huge prompt drifts, forgets and claims success. A team with small, checked goals doesn't, because each layer only has to get one thing right and prove it.</p>
     <div class="why">
-      <div><h3>One goal in, a plan out</h3><p>You describe the outcome once. A manager splits it into one subgoal per team member, and <b>every subgoal must come with a shell check</b> or the plan is rejected.</p></div>
+      <div><h3>One goal in, a plan out</h3><p>You describe the outcome once. A manager splits it into one subgoal per team member, and <b>every subgoal must come with a shell check</b> or the plan is rejected. Want something different afterwards? <b>Say it once</b>, and only the agents it concerns re-run.</p></div>
       <div><h3>Parallel and isolated</h3><p>Every agent gets its own git worktree and branch. Siblings work at the same time, and nobody overwrites anybody else. Your own branch is never touched.</p></div>
       <div><h3>Checks decide "done", not the agent</h3><p>Arranger runs the checks itself after each attempt. Failures go back to the agent with the exact output, <b>up to three tries</b>, then it stops and tells you.</p></div>
       <div><h3>Review before anything merges</h3><p>Managers read each child's diff and accept it or send it back with feedback. Only work that passed both checks and review flows up, so one agent's mistake doesn't spread to the rest.</p></div>
@@ -203,6 +204,7 @@ footer a { color: var(--muted); }
       <li><h3>Arrange</h3><p>Drag agents into a tree. Pick a tool for each one and save the team as a project on your repo.</p></li>
       <li><h3>Set the goal</h3><p>Give the top agent the outcome, acceptance criteria, and checks like <code>go test ./...</code>.</p></li>
       <li><h3>Run</h3><p>Managers plan, workers build, checks gate, reviewers accept or send work back. Watch it live.</p></li>
+      <li><h3>Request changes</h3><p>Not quite right? Tell the top manager what to change, once. Only the agents it concerns re-run, keeping their work.</p></li>
       <li><h3>Merge</h3><p>Review the final diff, drop what you don't want, and merge into <code>main</code> or any branch.</p></li>
     </ol>
   </section>
