@@ -75,6 +75,6 @@ cat <<EOF
 
 Run arranger, then open the page it serves:
 
-  arranger                        # start it, then open http://127.0.0.1:7777
+  arranger                        # start it, then open http://127.0.0.1:7889
   arranger -addr 127.0.0.1:8080   # or pick another port
 EOF
